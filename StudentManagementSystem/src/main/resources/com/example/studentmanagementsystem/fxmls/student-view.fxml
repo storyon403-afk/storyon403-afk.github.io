@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentmanagementsystem.controller.StudentController">
+
+    <!-- 顶部输入区 -->
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+
+            <!-- 学号、姓名、年龄 -->
+            <HBox spacing="10">
+                <Label text="学号:" />
+                <TextField fx:id="idField" promptText="输入学号" />
+                <Label text="姓名:" />
+                <TextField fx:id="nameField" promptText="输入姓名" />
+                <Label text="年龄:" />
+                <TextField fx:id="ageField" promptText="输入年龄" />
+            </HBox>
+
+            <!-- 性别、地址 -->
+            <HBox spacing="10">
+                <Label text="性别:" />
+                <ChoiceBox fx:id="sexChoiceBox" />
+                <Label text="地址:" />
+                <TextField fx:id="addressField" promptText="输入地址" />
+            </HBox>
+
+            <!-- 操作按钮 -->
+            <HBox spacing="10">
+                <Button onAction="#handleAdd" text="添加" />
+                <Button onAction="#handleUpdate" text="更新" />
+                <Button onAction="#handleDelete" text="删除" />
+                <Button onAction="#handleSearchById" text="按学号查询" />
+                <Button onAction="#handleSearchByName" text="按姓名查询" />
+                <Button onAction="#handleShowAll" text="显示全部" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- 中间表格区 -->
+    <center>
+        <TableView fx:id="studentTable" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="103.0" text="学号" />
+                <TableColumn fx:id="nameColumn" prefWidth="118.0" text="姓名" />
+                <TableColumn fx:id="ageColumn" prefWidth="81.0" text="年龄" />
+                <TableColumn fx:id="sexColumn" prefWidth="77.5" text="性别" />
+                <TableColumn fx:id="addressColumn" prefWidth="254.5" text="地址" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
